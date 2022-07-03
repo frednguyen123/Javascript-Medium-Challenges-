@@ -175,7 +175,99 @@ console.log(convertToZeros3([12]));
 console.log(convertToZeros3([1,2,3,4,5]));
 
 // Function that filters out 'Apple'
+/**
+ * For loop method, traverse the array and checks each index of array,
+ * if the element is not 'Apple' push it onto new array
+ */
 function removeApples (arr) {
-    
+    let updatedArr = [];
+    for(let i = 0; i < arr.length; ++i){
+        if (arr[i]!=='Apple'){
+            updatedArr.push(arr[i]);
+        }
+    }
+    return updatedArr
 }
+console.log(removeApples(['Banana', 'Apple', 'Orange', 'Apple']));
+console.log(removeApples(['Tomato', 'Orange', 'Banana']));
+console.log(removeApples(['Banana', 'Orange', 'Apple']));
 
+// Function that filters out 'Apple'
+/**
+ * Filter method, this allows us to return a new array  that is filtered,
+ * and checks each element in the array to see if it is not 'Apple'
+ */
+function removeApples2 (arr) {
+    let updatedArr = arr.filter(element => element !== 'Apple')
+    return updatedArr
+}
+console.log(removeApples2(['Banana', 'Apple', 'Orange', 'Apple']));
+console.log(removeApples2(['Tomato', 'Orange', 'Banana']));
+console.log(removeApples2(['Banana', 'Orange', 'Apple']));
+
+// Function that filters out falsy values
+/**
+ * For Loop method, traverse through array then if !!arr[i],
+ * so if array index element is true than add it to new array
+ */
+function filterOutFalsyValues(arr) {
+    let updatedArr = [];
+    for(let i = 0; i < arr.length; ++i){
+        if (!!arr[i]){
+            updatedArr.push(arr[i]);
+        }
+    }
+    return updatedArr
+}
+console.log(filterOutFalsyValues(["", [], null, undefined, "0"]));
+console.log(filterOutFalsyValues(['Tomato', 'Orange', 'Banana', false]));
+console.log(filterOutFalsyValues(['Banana', 'Orange', 'Apple']));
+
+// Function that filters out falsy values
+/**
+ * Filter method, this allows us to return a new array  that is filtered,
+ * and checks each element in the array to see if it is true
+ */
+ function filterOutFalsyValues2(arr) {
+    let updatedArr = arr.filter(element => !!element == true );
+    return updatedArr;
+ }
+console.log(filterOutFalsyValues2(["", [], null, undefined, "0"]));
+console.log(filterOutFalsyValues2(['Tomato', 'Orange', 'Banana', false]));
+console.log(filterOutFalsyValues2(['Banana', 'Orange', 'Apple']));
+
+// Function that returns true for truthy values and false for falsy values
+/**
+ * For Loop method, traverse through array then if !!arr[i],
+ * so if array index element is true than add 'true' to new array
+ * if array index element is false than add 'false' to new array
+ * 
+ */
+function convertToBoolean(arr) {
+    let updatedArr = [];
+    for(let i = 0; i < arr.length; ++i){
+        if (!!arr[i]){
+            updatedArr.push('true');
+        }
+        if (!arr[i]){
+            updatedArr.push('false');
+        }
+    }
+    return updatedArr
+}
+console.log(convertToBoolean(["", [], null, undefined, "0"]));
+console.log(convertToBoolean(['Tomato', 'Orange', 'Banana', false]));
+console.log(convertToBoolean(['Banana', 'Orange', 'Apple']));
+console.log(convertToBoolean([500, 0, "David", "", []]));
+
+// Function that returns true for truthy values and false for falsy values
+/**
+ * You can map every element to see if it is truthy or falsy using !!element
+ */
+function convertToBoolean2 (arr) {
+    return updatedArr = currentArr.map((element) => !!element)
+}
+console.log(convertToBoolean2(["", [], null, undefined, "0"]));
+console.log(convertToBoolean2(['Tomato', 'Orange', 'Banana', false]));
+console.log(convertToBoolean2(['Banana', 'Orange', 'Apple']));
+console.log(convertToBoolean2([500, 0, "David", "", []]));
